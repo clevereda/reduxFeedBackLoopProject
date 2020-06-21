@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
 class Review extends Component {
   render() {
@@ -12,7 +13,7 @@ class Review extends Component {
               <h5>Support:</h5>
               <h5>Comments:</h5>
         
-        <Button className="next" variant="contained" color="primary" size="large"> Submit </Button>
+                  <Link to='/Submission' ><Button className="next" variant="contained" color="primary" size='large'>Submit</Button></Link>
       </>
     );
   }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
 class Supported extends Component {
   render() {
@@ -12,7 +13,7 @@ class Supported extends Component {
 
         <input type="number" min="0" max="10" required />
         <br />
-        <Button className="next" variant="contained" color="primary" size="large" >Next</Button>
+        <Link to='/Comments' ><Button className="next" variant="contained" color="primary" size='large'>Next</Button></Link>
       </>
     );
   }
