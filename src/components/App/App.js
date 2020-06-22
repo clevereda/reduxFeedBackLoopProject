@@ -34,7 +34,7 @@ class App extends Component {
           <Header />
           {(this.state.start)? ' ':
          <div>
-           <h2 className="Start">Are Your Ready To Begin? Click Start Below!</h2>
+           <h2 className="Start">Ready? Click Start Below!</h2>
           <Link to='/Feeling'> <Button onClick={()=>this.startSurvery()} className="next" variant="contained" color="primary" size="large">Start</Button> </Link>
          </div>}
         

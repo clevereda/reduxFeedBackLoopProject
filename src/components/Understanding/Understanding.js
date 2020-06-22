@@ -1,8 +1,36 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import { connect} from 'react-redux';
 
 class Understanding extends Component {
+
+  state = {
+    understandingInput: {
+      understanding: ''
+    }
+  }
+
+  handleUnderstandingChange = (event) => {
+    this.setState({
+      understandingInput: {
+        understanding: event.target.value
+      }
+    })
+  }
+
+  handleSubmit = (event) => {
+    const { dispatch } = this.props;
+    dispatch({ type: 'UNDERSTANDING', payload: this.state.understandingInput });
+
+    this.setState({
+      understandingInput: {
+        understanding: ''
+      }
+    })
+  }
+
+
   render() {
     return (
       <>
@@ -11,12 +39,12 @@ class Understanding extends Component {
         <label>Understanding?</label>
         <br />
 
-        <input type="number" min="0" max="10" required />
+        <input value={this.state.understandingInput.understanding} onChange={(event) => this.handleUnderstandingChange(event)} type="number" min="0" max="10" required />
         <br />
-        <Link to='/Supported' ><Button className="next" variant="contained" color="primary" size='large'>Next</Button></Link>
+        <Link to='/Supported' ><Button onClick={(event) => this.handleSubmit()} className="next" variant="contained" color="primary" size='large'>Next</Button></Link>
       </>
     );
   }
 }
 
-export default Understanding;
+export default connect () (Understanding);
