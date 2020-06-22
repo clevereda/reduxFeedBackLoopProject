@@ -2,7 +2,7 @@
 
 This project involved creating a survey where you would give responses similar to daily reflections and it questioned how one felt in general, how well they understood, how supported they felt, accepted general comments, showed a summary of their review and then sent it to the database upon submission and gave them a chance to retake the survey upon completion.
 
-![sample images](wireframes/Image 6-22-20 at 10.20 AM.jpg).
+![sample images](wireframes/sample.jpg).
 
 
 ## Description
