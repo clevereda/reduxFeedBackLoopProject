@@ -24,36 +24,22 @@ router.get('/', (req, res) => {
 //POST for new feedback submission
 router.post('/', (req, res) => {
 
-        //pull out the 
-    const newFeedback = req.body;
+        //pull out the incoming object
+    const entry = req.body;
 
-    //initialize incoming feedback
-    let feeling = '';
-    let understanding = '';
-    let supported = '';
-    let comments = '';
-
-    // pull out objects nested in the array, store them in initialized variables
-   //remember responses are saved as an array of nested objects
-    for(entry of newFeedback) {
-        if(entry.feeling){
-            feeling = entry.feeling;
-        }if (entry.understanding) {
-           understanding = entry.understanding;
-         }
-         if (entry.supported) {
-           supported = entry.supported;
-         }
-         if (entry.comments) {
-           comments = entry.comments;
-         }
-    }
+    //incoming object looks like so:
+        // {
+        //   feeling: feeling,
+        //   understanding: understanding,
+        //   supported: supported,
+        //   comments: comments
+        // }
 
     //sanitize the database query
     const sqlText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
         VALUES ($1, $2, $3, $4);`;
 
-    const theFeedback = [feeling, understanding, supported, comments];
+    const theFeedback = [entry.feeling, entry.understanding, entry.supported, entry.comments];
     
     //send the query to the database
     pool.query(sqlText, theFeedback)

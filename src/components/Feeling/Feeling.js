@@ -13,6 +13,13 @@ class Feeling extends Component {
       }
           
       handleFeelingChange = (event) => {
+        // const input = Number(event.target.value);
+
+        // if (!Number(input) || input<0 || input>5 ){
+        //   alert('Please enter a number between 0 and 5');
+        //   return
+        // }
+        
         this.setState({
           feelingInput: {
             feeling: event.target.value
@@ -36,9 +43,9 @@ class Feeling extends Component {
           <>
             
             <h2 className="feeling">How Are You Feeling Today</h2>
-            <label>Feeling?</label>
+            <label>Feeling? (0-5)</label>
             <br />
-            <input value={this.state.feelingInput.feeling} onChange={(event) => this.handleFeelingChange(event)} type="number" min="0" max="10" required />
+            <input value={this.state.feelingInput.feeling} onChange={(event) => this.handleFeelingChange(event)} type="number" name="feeling" min="0" max="5" required="required" />
             <br />
             <Link to="/Understanding"><Button onClick={(event) => this.handleSubmit()} className="next" variant="contained" color="primary" size="large">Next</Button></Link> 
             

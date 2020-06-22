@@ -6,11 +6,44 @@ import { connect} from 'react-redux';
 
 class Review extends Component {
 
+      
+
       storeFeedback = (event) => {
-        axios.post('/api/feedback', this.props.feedback)
+        const { feedback } = this.props;
+        let feeling = '';
+        let understanding = '';
+        let supported = '';
+        let comments = '';
+
+        for (let entry of feedback){
+          if (entry.feeling) {
+            feeling = entry.feeling;
+          } 
+          if (entry.understanding){
+            understanding = entry.understanding;
+          } 
+          if (entry.supported){
+            supported = entry.supported;
+          } 
+          if(entry.comments){
+            comments = entry.comments;
+          }
+        }
+
+        const newFeedback = {
+          feeling: feeling,
+          understanding: understanding,
+          supported: supported,
+          comments: comments
+        }
+
+        console.log('Here is the outgoing post:', newFeedback);
+
+        axios.post('/feedback', newFeedback)
           .then(() =>{
+            console.log('I have sent:', newFeedback);
             //clear global state
-            this.dispatch({ type: 'RESTART', payload: [ ]});
+            this.props.dispatch({ type: 'RESTART', payload: [ ]});
 
           }).catch((error) => {
               console.log('There was an error', error);

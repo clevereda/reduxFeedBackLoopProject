@@ -36,10 +36,10 @@ class Understanding extends Component {
       <>
         <h2 className="feeling">How Well Are You Understanding The Content?</h2>
 
-        <label>Understanding?</label>
+        <label>Understanding? (0-5)</label>
         <br />
 
-        <input value={this.state.understandingInput.understanding} onChange={(event) => this.handleUnderstandingChange(event)} type="number" min="0" max="10" required />
+        <input value={this.state.understandingInput.understanding} onChange={(event) => this.handleUnderstandingChange(event)} type="number" name="understanding" min="0" max="5" required="required" />
         <br />
         <Link to='/Supported' ><Button onClick={(event) => this.handleSubmit()} className="next" variant="contained" color="primary" size='large'>Next</Button></Link>
       </>

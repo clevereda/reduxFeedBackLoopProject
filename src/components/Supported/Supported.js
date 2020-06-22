@@ -37,10 +37,10 @@ class Supported extends Component {
       <>
         <h2 className="feeling">How Well Are You Being Supported?</h2>
 
-        <label>Support?</label>
+        <label>Support? (0-5)</label>
         <br />
 
-        <input value={this.state.supportedInput.supported} onChange={(event) => this.handleSupportedChange(event)} type="number" min="0" max="10" required />
+        <input value={this.state.supportedInput.supported} onChange={(event) => this.handleSupportedChange(event)} type="number" name="supported" min="0" max="5" required="required" />
         <br />
         <Link to='/Comments' ><Button onClick={(event) => this.handleSubmit()} className="next" variant="contained" color="primary" size='large'>Next</Button></Link>
       </>

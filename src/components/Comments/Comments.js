@@ -40,7 +40,7 @@ class Comments extends Component {
         <label>Comments</label>
         <br />
 
-        <input value={this.state.commentsInput.comments} onChange={(event) => this.handleCommentsChange(event)}   type="text" required />
+        <input value={this.state.commentsInput.comments} onChange={(event) => this.handleCommentsChange(event)}   type="text"  />
         <br />
         <Link to='/Review' > <Button onClick={(event) => this.handleSubmit()}   className="next" variant="contained" color="primary" size='large'>Next</Button></Link>
       </>
